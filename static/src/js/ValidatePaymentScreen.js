@@ -13,19 +13,21 @@ odoo.define("point_of_sale.CustomValidatePaymentScreen", function (require) {
             for (let line of this.paymentLines) {
                 console.log(line.name)
                 if (line.name === "BTCPay Server (Lightning)") { //if BTCpay Lightning is the payment method upon clicking validate button call controller to check invoice status
-                  debugger
+                  //debugger
                   console.log(line.name);
+                  console.log(line.btcpay_invoice_id);
                     let route = '/btcpay/lightninginvoice'
                     let params = {
                                 "invoice_id":line.btcpay_invoice_id,
                                 "invoiced_sat_amount": line.invoiced_sat_amount,
+                                "uuid": this.currentOrder.uid,
                             }
                   try{
                       let receipt_data = await rpc.query({
                           route: route,
                           params: params
                       })
-                      debugger;
+                      //debugger;
                       if (receipt_data){
                           var parsed_data=JSON.parse(receipt_data)
                           let is_payment_process = 'btcpay_invoice_id' in parsed_data
@@ -35,7 +37,7 @@ odoo.define("point_of_sale.CustomValidatePaymentScreen", function (require) {
                              if (is_payment_process) {
                                  const codeWriter = new window.ZXing.BrowserQRCodeSvgWriter();
                                  let qr_code_svg = new XMLSerializer().serializeToString(codeWriter.write(parsed_data['btcpay_payment_link_qr_code'], 150, 150));
-                                 debugger;
+                                 //debugger;
                                  line.btcpay_payment_link_qr_code = "data:image/svg+xml;base64," + window.btoa(qr_code_svg)
                                  line.btcpay_payment_link = parsed_data['btcpay_payment_link']
                                  line.btcpay_invoice_id = parsed_data['btcpay_invoice_id']
