@@ -35,6 +35,5 @@ Operation
    ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/cfc6dc9f-a824-4ceb-9828-247a97b17ce6)
    ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/ade11951-04ca-477c-b5df-aed39ce8350d)
 8. Lightning payment information, satoshi amount and conversion rate, will be stored on the payment model. To view after closing the session navigate to Orders-> Payments and open a specific record.
-   ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/556e6b11-ea2b-4d10-baf5-1f09b796f6eb)
-
+![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/90fef5a4-d74d-48c1-9a09-9f6e8d266fa1)
 
