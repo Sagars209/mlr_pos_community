@@ -1,4 +1,4 @@
-# mlr-pos-community
+![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/c600f3cd-63d8-4772-9eb9-ea741b4b7766)# mlr-pos-community
 
 Prerequisites
 
@@ -16,7 +16,8 @@ Setup
 
 1. In Odoo navigate to Point of Sale-> Configuration -> BTCpay server instance.
 2. Click New to create a new record.
-   ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/002bd8f6-9223-4512-97e8-4c26ee669310)
+   ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/90591a58-7c0e-43da-931e-252fe154efbf)
+
 4. Enter a Name for the Instance and Company Name to display on the receipt. Enter the expiration 
 5. Login into the BTCpay server to be used and navigate to Account -> API Key. Create a key with full priviledges.
 6. From BTCpay server copy the following information and paste in the Odoo BTCpay server Instance record: the server base URL, API key, and enter the password to BTCpay server.
