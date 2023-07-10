@@ -1,5 +1,3 @@
-![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/c600f3cd-63d8-4772-9eb9-ea741b4b7766)# mlr-pos-community
-
 Prerequisites
 
 Versions
