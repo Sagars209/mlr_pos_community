@@ -1,8 +1,12 @@
-Prerequisites
+Lightning Rod Point of Sale Community Edition Readme
 
-Versions
-Compatible with Odoo 16.
+Overview
+This custom module for Odoo 16+ add BTCpay server as a payment method to the Point-of-Sale application. A BTCpay server connected to a lightning node is queried by API calls from Odoo. BTCpay server API access is provided to Odoo and a Create Invoice button is added to the POS action pad. A created invoice for an order is printed on the bill receipt for scanning by customers on paper or the screen. A customer can choose to pay in Lightning or a traditional payment method. The POS Validate payment button will check the status of the invoice and mark the order as paid if the invoice is settled. Conversion rate and invoiced satoshis are stored for each order.
 
+Prerequisites (versions)
+Compatible with Odoo 16
+Postgres 14+
+BTCpay server connected to Lightning node
 
 Installation (see this video for tutorial on Odoo module installation)
 1. Download repository and place extracted folder in the Odoo addons folder.
