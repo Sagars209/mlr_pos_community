@@ -34,6 +34,18 @@ class PosOrderInherit(models.Model):
                 })
         return fields
 
+    @api.model
+    def _get_fields_for_payment_lines(self):
+        payment_fields = super()._get_fields_for_payment_lines()
+        return payment_fields + [
+            'btcpay_invoice_id',
+            'btcpay_payment_link',
+            'btcpay_payment_link_qr_code',
+            'invoiced_sat_amount',
+            'conversion_rate'
+            ]
+
+
     def get_auto_conversion_rate(self): #only used for the get conversion rate in the systray
         try:
             record_search = self.env['btcpay.server.instance'].search([('state', '=', 'active')])
