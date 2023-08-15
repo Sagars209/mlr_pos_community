@@ -1,18 +1,15 @@
 odoo.define('mlr_point_of_sale.models', function (require) { // super point of sale models
+"use strict";
+
 
     var models = require('point_of_sale.models');
     var { Order, Payment } = require('point_of_sale.models');
     const Registries = require('point_of_sale.Registries');
 
-    const PosBTCPayServerPayment = (Payment) => class PosBTCPayPayment extends Payment {
+    const PosBTCPayServerPayment = (Payment) => class PosBTCPayServerPayment extends Payment {
         
         constructor(obj, options) {
             super(...arguments);
-            this.btcpay_invoice_id = this.btcpay_invoice_id;
-            this.btcpay_payment_link_qr_code = this.btcpay_payment_link_qr_code;
-            this.btcpay_payment_link = this.btcpay_payment_link;
-            this.invoiced_sat_amount = this.invoiced_sat_amount;
-            this.conversion_rate = this.conversion_rate;
         }
         //@override
         export_as_JSON() {
@@ -26,12 +23,14 @@ odoo.define('mlr_point_of_sale.models', function (require) { // super point of s
         }
         //@override
         init_from_JSON(json) {
-            debugger;
             super.init_from_JSON(...arguments);
             this.btcpay_invoice_id = json.btcpay_invoice_id;
-            this.btcpay_payment_link_qr_code = json.btcpay_payment_link_qr_code;
             this.btcpay_payment_link = json.btcpay_payment_link;
             this.conversion_rate = json.conversion_rate;
+            const codeWriter = new window.ZXing.BrowserQRCodeSvgWriter();
+            let qr_code_svg = new XMLSerializer().serializeToString(codeWriter.write('lightning:'+json.btcpay_payment_link, 150, 150));
+            this.btcpay_payment_link_qr_code = "data:image/svg+xml;base64,"+ window.btoa(qr_code_svg);
+            this.invoiced_sat_amount = json.invoiced_sat_amount;
         }
     }
     Registries.Model.extend(Payment, PosBTCPayServerPayment);

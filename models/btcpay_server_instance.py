@@ -33,7 +33,7 @@ class BTCPayServerInstance(models.Model):
             result = response_json['preferredSource'] if response.status_code == 200 else None
             return result
         except Exception as e:
-            raise UserError(_("Get Conversion Rate: %s", e.args))
+            raise UserError(_("Get Conversion Rate Source: %s", e.args))
 
     def action_get_conversion_rate(self): #obtains conversion rate from BTCpay server
         try:
@@ -129,7 +129,7 @@ class BTCPayServerInstance(models.Model):
             lightning_expiration_minutes = self.expiration_minutes * 60 #conversion of expiration time from min to sec for submission to btcpay server
             payload = {
                 "amount": amount_millisats,
-                "description": self.btcpay_company_name + " " + pos_payment_obj.get('order_name'), #desciption for customer - company name and order name
+                "description": f"{self.btcpay_company_name} {pos_payment_obj.get('order_name')}", #desciption for customer - company name and order name
                 "expiry": lightning_expiration_minutes,
             }
             response = requests.post(server_url, data=json.dumps(payload), headers=headers)
