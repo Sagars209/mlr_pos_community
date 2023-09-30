@@ -1,7 +1,7 @@
 Lightning Rod Point of Sale Community Edition Readme
 
 Overview
-<br>This custom module for Odoo 16+ add BTCpay server as a payment method to the Point-of-Sale application. A BTCpay server connected to a lightning node is queried by API calls from Odoo. BTCpay server API access is provided to Odoo and a Create Invoice button is added to the POS action pad. A created invoice for an order is printed on the bill receipt for scanning by customers on paper or the screen. A customer can choose to pay in Lightning or a traditional payment method. The POS Validate payment button will check the status of the invoice and mark the order as paid if the invoice is settled. Conversion rate and invoiced satoshis are stored for each order.
+<br>This custom module for Odoo 16+ adds BTCpay server as a payment method to the Point-of-Sale application. A BTCpay server connected to a lightning node is queried by API calls from Odoo. BTCpay server API access is provided to Odoo and a Create Invoice button is added to the POS action pad. A created invoice for an order is printed on the bill receipt for scanning by customers on paper or the screen. A customer can choose to pay in Lightning or a traditional payment method. The POS Validate payment button will check the status of the invoice and mark the order as paid if the invoice is settled. Conversion rate and invoiced satoshis are stored for each order.
 
 Prerequisites (versions)
 <br>Compatible with Odoo 16
@@ -19,7 +19,7 @@ Setup
 1. In Odoo navigate to Point of Sale-> Configuration -> BTCpay server instance.
 2. Click New to create a new record.
    ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/90591a58-7c0e-43da-931e-252fe154efbf)
-4. Enter a Name for the Instance and Company Name to display on the receipt. Enter the expiration 
+4. Enter a Name for the Instance and Company Name to display on the receipt. Enter the time until invoice expiration.
 5. Login into the BTCpay server to be used and navigate to Account -> API Key. Create a key with full priviledges.
 6. From BTCpay server copy the following information and paste in the Odoo BTCpay server Instance record: the server base URL, API key, and enter the password to BTCpay server.
    ![image](https://github.com/ERP-FTW/mlr_pos_community/assets/124227412/4ca911a4-94b2-46ff-90e6-fc88e73873d2)
